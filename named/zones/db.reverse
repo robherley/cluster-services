@@ -1,0 +1,23 @@
+$TTL    604800
+@       IN      SOA     hagrid.robherley.xyz. contact.robherley.xyz (
+                  1     ; Serial
+             604800     ; Refresh
+              86400     ; Retry
+            2419200     ; Expire
+             604800     ; Minimum
+)
+
+  IN      NS      hagrid.robherley.xyz.
+
+1      IN    PTR    hagrid.robherley.xyz.
+1      IN    PTR    api.hogwarts.robherley.xyz.
+1      IN    PTR    api-int.hogwarts.robherley.xyz.
+;
+200    IN    PTR    voldemort.hogwarts.robherley.xyz.
+;
+201    IN    PTR    dumbledore.hogwarts.robherley.xyz.
+202    IN    PTR    mcgonagall.hogwarts.robherley.xyz.
+203    IN    PTR    snape.hogwarts.robherley.xyz.
+;
+211    IN    PTR    harry.hogwarts.robherley.xyz.
+212    IN    PTR    draco.hogwarts.robherley.xyz.

@@ -1,0 +1,41 @@
+$TTL    604800
+@       IN      SOA     hagrid.robherley.xyz. contact.robherley.xyz (
+                  1     ; Serial
+             604800     ; Refresh
+              86400     ; Retry
+            2419200     ; Expire
+             604800     ; Minimum
+)
+        IN      NS      hagrid
+
+hagrid.robherley.xyz.          IN      A       192.168.2.1
+
+; Temp Bootstrap Node
+voldemort.hogwarts.robherley.xyz.        IN      A      192.168.2.200
+
+; Control Plane Nodes
+dumbledore.hogwarts.robherley.xyz.         IN      A      192.168.2.201
+mcgonagall.hogwarts.robherley.xyz.         IN      A      192.168.2.202
+snape.hogwarts.robherley.xyz.         IN      A      192.168.2.203
+
+; Worker Nodes
+harry.hogwarts.robherley.xyz.        IN      A      192.168.2.211
+draco.hogwarts.robherley.xyz.        IN      A      192.168.2.212
+
+; OpenShift Internal - Load balancer
+api.hogwarts.robherley.xyz.        IN    A    192.168.2.1
+api-int.hogwarts.robherley.xyz.    IN    A    192.168.2.1
+*.apps.hogwarts.robherley.xyz.     IN    A    192.168.2.1
+
+; ETCD Cluster
+etcd-0.hogwarts.robherley.xyz.    IN    A     192.168.2.201
+etcd-1.hogwarts.robherley.xyz.    IN    A     192.168.2.202
+etcd-2.hogwarts.robherley.xyz.    IN    A     192.168.2.203
+
+; OpenShift Internal SRV records (cluster name = lab)
+_etcd-server-ssl._tcp.hogwarts.robherley.xyz.    86400     IN    SRV     0    10    2380    etcd-0.hogwarts
+_etcd-server-ssl._tcp.hogwarts.robherley.xyz.    86400     IN    SRV     0    10    2380    etcd-1.hogwarts
+_etcd-server-ssl._tcp.hogwarts.robherley.xyz.    86400     IN    SRV     0    10    2380    etcd-2.hogwarts
+
+oauth-openshift.apps.hogwarts.robherley.xyz.     IN     A     192.168.2.1
+console-openshift-console.apps.hogwarts.robherley.xyz.     IN     A     192.168.2.1
